@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#303ff3">
+  <meta name="description" content="A little balloon. A big adventure. A playful, animated file upload experience.">
+  <title>Sharefile — A little lift for your files</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/dynapuff.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="sky" data-state="idle">
+    <svg class="svg-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="paper-edge" x="-8%" y="-8%" width="116%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency=".065" numOctaves="3" seed="8" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="soft-edge" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="2" seed="3" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <linearGradient id="coral-paper" x1="0" x2="1" y1="0" y2=".3">
+          <stop stop-color="#f77875"/><stop offset=".5" stop-color="#f77b76"/><stop offset="1" stop-color="#f37373"/>
+        </linearGradient>
+        <linearGradient id="lavender-paper"><stop stop-color="#d4a0e9"/><stop offset=".55" stop-color="#d9a7ee"/><stop offset="1" stop-color="#d2a0e8"/></linearGradient>
+        <linearGradient id="beam-light" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff3b8" stop-opacity=".38"/><stop offset="1" stop-color="#fff3b8" stop-opacity="0"/></linearGradient>
+        <symbol id="cloud" viewBox="0 0 360 200">
+          <path d="M48 167C13 164 5 133 12 110C17 86 41 74 66 73C72 49 99 42 119 46C134 12 174 10 194 28C218 22 242 45 248 65C275 58 302 75 309 93C325 78 347 89 345 106C345 119 333 124 326 126C327 161 308 184 278 181C260 186 242 179 230 169C211 198 171 199 146 184C116 188 96 174 90 158C80 170 61 171 48 167Z" fill="url(#lavender-paper)" filter="url(#paper-edge)"/>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="clouds" aria-hidden="true">
+      <svg class="cloud cloud-one"><use href="#cloud"/></svg>
+      <svg class="cloud cloud-two"><use href="#cloud"/></svg>
+      <svg class="cloud cloud-three"><use href="#cloud"/></svg>
+      <svg class="cloud cloud-four"><use href="#cloud"/></svg>
+      <svg class="cloud cloud-five"><use href="#cloud"/></svg>
+    </div>
+
+    <svg class="sun" viewBox="0 0 240 240" aria-hidden="true">
+      <g class="sun-body">
+        <path d="M120 13C167 7 213 47 223 94C236 144 210 202 166 220C112 245 54 216 29 174C2 129 11 73 48 40C66 23 96 12 120 13Z" fill="#ffdd19" filter="url(#paper-edge)"/>
+        <g transform="rotate(-13 120 120)" filter="url(#soft-edge)">
+          <ellipse cx="88" cy="103" rx="7.5" ry="8" fill="#fff5d8"/>
+          <ellipse cx="145" cy="99" rx="7" ry="8" fill="#fff5d8"/>
+          <circle cx="89" cy="104" r="3.2" fill="#333227"/>
+          <circle cx="145" cy="100" r="3.2" fill="#333227"/>
+          <path d="M110 106L137 126L111 135Z" fill="#f9b62d"/>
+          <path d="M108 145Q116 153 124 144" fill="none" stroke="#bc7527" stroke-width="4" stroke-linecap="round"/>
+        </g>
+      </g>
+    </svg>
+
+    <div class="illustration">
+      <svg class="balloon-scene" viewBox="0 0 1100 1080" role="img" aria-label="A smiling coral balloon floating in a blue sky">
+        <g id="balloon-flight">
+          <g id="balloon-bob">
+            <path id="balloon-string" d="M649 652C660 748 695 839 688 950C681 1032 705 1139 733 1250" fill="none" stroke="#252c29" stroke-width="7" stroke-linecap="round" filter="url(#soft-edge)"/>
+            <g id="parcel" class="parcel" transform="translate(682 959) rotate(-5)">
+              <path d="M-48-28L49-30L47 37L-48 35Z" fill="#fbf0d3" filter="url(#paper-edge)"/>
+              <path d="M-47-27L0 12L47-28M-47 34L-10 2M47 35L10 3" stroke="#ded3b9" stroke-width="2" fill="none"/>
+              <path d="M-8 5Q0-3 9 5L8 20L-7 20Z" fill="#f87776" filter="url(#soft-edge)"/>
+            </g>
+            <g id="balloon-shape">
+              <path d="M643 646L627 683Q644 694 667 683L652 647Z" fill="#f77b76" filter="url(#paper-edge)"/>
+              <path d="M634 650Q645 654 655 649" fill="none" stroke="#282c29" stroke-width="6" stroke-linecap="round"/>
+              <path class="balloon-body" d="M635 262C742 256 844 304 882 384C918 455 907 527 847 582C791 635 724 651 647 652C546 654 466 618 428 558C389 500 387 441 413 383C441 326 493 305 540 280C571 265 604 262 635 262Z" fill="url(#coral-paper)" filter="url(#paper-edge)"/>
+              <g class="balloon-face" filter="url(#soft-edge)">
+                <g class="eyes">
+                  <ellipse cx="586" cy="446" rx="31" ry="35" transform="rotate(-16 586 446)" fill="#f8efd6"/>
+                  <ellipse cx="713" cy="436" rx="30" ry="34" transform="rotate(10 713 436)" fill="#f8efd6"/>
+                  <g class="pupils"><ellipse cx="592" cy="459" rx="11" ry="13" fill="#262c29"/><ellipse cx="719" cy="448" rx="11" ry="12" fill="#262c29"/></g>
+                </g>
+                <path d="M640 434Q648 419 655 440L678 493Q679 504 668 507L638 510Q624 509 628 496Z" fill="#ec676b"/>
+                <path class="mouth smile" d="M612 511Q647 554 684 510" fill="none" stroke="#faf0d2" stroke-width="7" stroke-linecap="round"/>
+                <path class="mouth frown" d="M615 533Q646 502 679 529" fill="none" stroke="#faf0d2" stroke-width="7" stroke-linecap="round"/>
+                <path class="mouth worried" d="M633 522Q647 513 659 522" fill="none" stroke="#faf0d2" stroke-width="7" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g class="ufo" aria-hidden="true">
+          <path class="ufo-beam" d="M595 184L473 402L739 402L631 184Z" fill="url(#beam-light)"/>
+          <path d="M566 176Q572 121 613 125Q650 126 662 175Z" fill="#bd713f" filter="url(#paper-edge)"/>
+          <ellipse cx="588" cy="148" rx="5" ry="6" fill="#fff0c1"/><ellipse cx="631" cy="143" rx="5" ry="6" fill="#fff0c1"/>
+          <ellipse cx="612" cy="180" rx="112" ry="25" fill="#f58a6c" filter="url(#paper-edge)"/>
+          <path d="M511 182Q612 207 709 182Q685 212 613 215Q541 210 511 182Z" fill="#f0a25e" filter="url(#soft-edge)"/>
+        </g>
+        <g class="arrival-cloud" aria-hidden="true">
+          <use href="#cloud" x="140" y="175" width="920" height="500"/>
+          <path class="checkmark" d="M524 420L585 473L681 357" fill="none" stroke="#fff3d3" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" filter="url(#soft-edge)"/>
+        </g>
+      </svg>
+      <button class="balloon-hit" type="button" aria-label="Say hello to the balloon" title="Say hello!"></button>
+    </div>
+
+    <section class="upload-panel" aria-labelledby="page-title">
+      <h1 id="page-title">UPLOAD YOUR FILE</h1>
+      <p class="file-types">PDF, images or ZIP · up to 25 MB</p>
+
+      <div class="panel-content">
+        <div id="idle-view" class="view">
+          <button class="drop-zone" id="drop-zone" type="button" aria-label="Choose a file or drop it here">
+            <strong>Drop it here</strong>
+            <span>and the balloon will carry it</span>
+          </button>
+          <button id="choose-file" class="primary-button" type="button">Choose file</button>
+          <div class="demo-actions">
+            <button id="heavy-file" class="text-button" type="button">Try a heavy file (40 MB)</button>
+          </div>
+        </div>
+
+        <div id="upload-view" class="view" hidden>
+          <div class="progress-track" role="progressbar" aria-label="File flight progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill"></div></div>
+          <p id="progress-label" class="progress-label">Getting ready for takeoff…</p>
+          <button id="cancel-upload" class="primary-button" type="button">Cancel</button>
+        </div>
+
+        <div id="result-view" class="view" hidden>
+          <div class="result-copy"><h2 id="result-title"></h2><p id="result-description"></p></div>
+          <button id="try-again" class="primary-button" type="button">Upload another</button>
+        </div>
+      </div>
+      <input type="file" id="file-input" accept=".pdf,.zip,application/pdf,application/zip,application/x-zip-compressed,image/*" hidden>
+      <p class="screen-reader-only" id="live-status" role="status" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <div class="page-tools">
+      <button class="text-button demo-play" type="button" id="play-demo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3L12 8L5 13Z" fill="currentColor"/></svg>Watch the flight</button>
+      <span class="demo-note">Interactive demo · files stay on your device</span>
+      <button class="motion-toggle" id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><svg class="pause-icon" viewBox="0 0 18 18" aria-hidden="true"><path d="M6 4V14M12 4V14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="play-icon" viewBox="0 0 18 18" aria-hidden="true"><path d="M6 4L14 9L6 14Z" fill="currentColor"/></svg></button>
+    </div>
+    <canvas id="paper-texture" aria-hidden="true"></canvas>
+  </main>
+</body>
+</html>
